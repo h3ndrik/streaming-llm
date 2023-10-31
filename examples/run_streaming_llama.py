@@ -83,7 +83,7 @@ def main(args):
 
     if not os.path.exists(test_filepath):
         download_url(
-            "https://raw.githubusercontent.com/lm-sys/FastChat/main/fastchat/llm_judge/data/mt_bench/question.jsonl",
+            "https://raw.githubusercontent.com/h3ndrik/streaming-llm/main/data/mt_bench.jsonl",
             args.data_root,
         )
         os.rename(os.path.join(args.data_root, "question.jsonl"), test_filepath)
