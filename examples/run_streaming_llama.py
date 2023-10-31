@@ -73,7 +73,7 @@ def greedy_generate(model, tokenizer, input_ids, past_key_values, max_gen_len):
 
 
 @torch.no_grad()
-def streaming_inference(model, tokenizer, prompts, kv_cache=None, max_gen_len=1000):
+def streaming_inference(model, tokenizer, prompts, kv_cache=None, max_gen_len=300):
     past_key_values = None
     for idx, prompt in enumerate(prompts):
         prompt = "USER: " + prompt + "\n\nASSISTANT: "
