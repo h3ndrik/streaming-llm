@@ -15,6 +15,7 @@ from streaming_llm.utils import load, download_url, load_jsonl
 from streaming_llm.enable_streaming_llm import enable_streaming_llm
 
 from functools import wraps
+import csv
 
 
 def timeit(func):
@@ -25,8 +26,17 @@ def timeit(func):
         end_time = time.perf_counter()
         total_time = end_time - start_time
         print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
+        with open('timings.csv', 'a') as f:
+            fw = csv.writer(f)
+            fw.writerows([total_time])
+
         return result
     return timeit_wrapper
+
+
+def timeit_clear():
+    with open('timings.csv', 'w') as f:
+        f.truncate()
 
 
 @timeit
@@ -114,6 +124,8 @@ def main(args):
         )
     else:
         kv_cache = None
+
+    timeit_clear()
 
     streaming_inference(
         model,
