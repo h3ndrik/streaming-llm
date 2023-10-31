@@ -36,6 +36,10 @@ python setup.py develop
 CUDA_VISIBLE_DEVICES=0 python examples/run_streaming_llama.py  --enable_streaming
 ```
 
+### Colab
+
+* https://colab.research.google.com/github/h3ndrik/streaming-llm/blob/main/colab/streaming_llm_setup.ipynb
+
 ## FAQ
 
 1. **What does "working on infinite-length inputs" imply for LLMs?**
