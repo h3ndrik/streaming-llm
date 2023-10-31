@@ -30,7 +30,7 @@ def timeit(func):
         print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
         with open('timings.csv', 'a') as f:
             fw = csv.writer(f)
-            fw.writerows([total_time])
+            fw.writerow([total_time])
 
         return result
     return timeit_wrapper
