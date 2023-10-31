@@ -27,7 +27,8 @@ def timeit(func):
         result = func(*args, **kwargs)
         end_time = time.perf_counter()
         total_time = end_time - start_time
-        print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
+        #print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
+        print(f'Function {func.__name__} Took {total_time:.4f} seconds')
         with open('timings.csv', 'a') as f:
             fw = csv.writer(f)
             fw.writerow([total_time])
